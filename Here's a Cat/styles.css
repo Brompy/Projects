@@ -1,0 +1,33 @@
+body {
+    background: black;
+    color: white;
+    margin-top: 2%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+select {
+    font-size: 1.1rem;
+}
+
+
+img {
+    max-height: 600px;
+    max-width: 400px;
+}
+
