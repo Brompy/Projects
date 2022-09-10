@@ -52,8 +52,8 @@ keys.addEventListener('click', (event) => {
     }
 
     if(target.classList.contains('operator')) {
-        console.log('operator', target.value);
-        return;
+        handleOperator(target.value);
+        updateDisplay();
     }
 
     if(target.classList.contains('decimal')) {
