@@ -34,8 +34,12 @@ function handleOperator(nextOperator) {
     //verify that 'firstOperand' is null and 'inputValue' is not NaN
     if(firstOperand === null && !isNaN(inputValue)) {
         calculator.firstOperand = inputValue;
+    } else if (operator) {
+        const result = calculate(firstOperand, inputValue, operator)
+        
+        calculator.displayValue = String(result);
+        calculator.firstOperand = result;
     }
-
     calculator.waitingForSecondOperand = true;
     calculator.operator = nextOperator;
     console.log(calculator);
