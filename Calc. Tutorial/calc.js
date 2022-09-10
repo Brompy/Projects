@@ -41,6 +41,19 @@ function handleOperator(nextOperator) {
     console.log(calculator);
 }
 
+function calculate(firstOperand, secondOperand, operator) {
+    if (operator === '+') {
+        return firstOperand + secondOperand;
+    } else if (operator === '-') {
+        return firstOperand - secondOperand;
+    } else if (operator === '*') {
+        return firstOperand * secondOperand;
+    } else if (operator === '/') {
+        return firstOperand / secondOperand;
+    }
+    return secondOperand;
+}
+
 function updateDisplay(){
     const display = document.querySelector('.calculator-screen');
     display.value = calculator.displayValue;
