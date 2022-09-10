@@ -9,6 +9,7 @@ function inputDigit(digit) {
     const { displayValue } = calculator;
     //Overwrite 'displayValue' if the current value is '0', otherwise append to it.
     calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+    console.log(calculator);
 }
 
 function inputDecimal(dot) {
@@ -17,6 +18,22 @@ function inputDecimal(dot) {
         //append the decimal point
         calculator.displayValue += dot;
     }
+}
+
+function handleOperator(nextOperator) {
+    //Destructure the porperties on the calc. object
+    const { firstOperand, displayValue, operator } = calculator
+    //'parseFloat' converts string to floating-point #.
+    const inputValue = parseFloat(displayValue);
+
+    //verify that 'firstOperand' is null and 'inputValue' is not NaN
+    if(firstOperand === null && !isNaN(inputValue)) {
+        calculator.firstOperand = inputValue;
+    }
+
+    calculator.waitingForSecondOperand = true;
+    calculator.operator = nextOperator;
+    console.log(calculator);
 }
 
 function updateDisplay(){
