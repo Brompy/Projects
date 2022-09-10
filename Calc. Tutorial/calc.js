@@ -11,6 +11,14 @@ function inputDigit(digit) {
     calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
 }
 
+function inputDecimal(dot) {
+    //IF the 'displayValue' property does not already contain a decimal point...
+    if (!calculator.displayValue.includes(dot)) {
+        //append the decimal point
+        calculator.displayValue += dot;
+    }
+}
+
 function updateDisplay(){
     const display = document.querySelector('.calculator-screen');
     display.value = calculator.displayValue;
@@ -32,7 +40,8 @@ keys.addEventListener('click', (event) => {
     }
 
     if(target.classList.contains('decimal')) {
-        console.log('decimal', target.value);
+        inputDecimal(target.value);
+        updateDisplay();
         return;
     }
 
