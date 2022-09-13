@@ -4,6 +4,7 @@ const calculator = {
     waitingForSecondOperand: false,
     operator: null,
 };
+//
 
 function inputDigit(digit) {
     const { displayValue, waitingForSecondOperand } = calculator;
@@ -16,6 +17,7 @@ function inputDigit(digit) {
     }
     console.log(calculator);
 }
+//
 
 function inputDecimal(dot) {
     //IF the 'displayValue' property does not already contain a decimal point...
@@ -24,12 +26,19 @@ function inputDecimal(dot) {
         calculator.displayValue += dot;
     }
 }
+//
 
 function handleOperator(nextOperator) {
     //Destructure the porperties on the calc. object
     const { firstOperand, displayValue, operator } = calculator
     //'parseFloat' converts string to floating-point #.
     const inputValue = parseFloat(displayValue);
+
+    if(operator && calculator.waitingForSecondOperand) {
+        calculator.operator = nextOperator;
+        console.log(calculator);
+        return;
+    }
 
     //verify that 'firstOperand' is null and 'inputValue' is not NaN
     if(firstOperand === null && !isNaN(inputValue)) {
@@ -44,6 +53,7 @@ function handleOperator(nextOperator) {
     calculator.operator = nextOperator;
     console.log(calculator);
 }
+//
 
 function calculate(firstOperand, secondOperand, operator) {
     if (operator === '+') {
@@ -76,6 +86,7 @@ keys.addEventListener('click', (event) => {
     if(target.classList.contains('operator')) {
         handleOperator(target.value);
         updateDisplay();
+        return;
     }
 
     if(target.classList.contains('decimal')) {
