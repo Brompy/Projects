@@ -1,0 +1,8 @@
+This will be a Snooker Score Keeping application.
+
+You will input Player 1's Name (Whoever is breaking)
+& Then Player 2's name.
+
+There will be 3 columns:
+
+
