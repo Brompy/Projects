@@ -1,0 +1,63 @@
+body, html {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly
+}
+
+main {
+  margin: 1em;
+}
+
+section {
+  margin: 5em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.ball {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.redBall {
+  background-color: red;
+}
+
+.yellowBall {
+  background-color: yellow;
+}
+
+.pinkBall {
+  background-color: rgb(245, 163, 177);
+}
+
+.brownBall {
+  background-color: brown;
+}
+
+.greenBall {
+  background-color: green;
+}
+
+.blackBall {
+  background-color: black;
+}
+
+.blueBall {
+  background-color: rgb(0, 170, 255);
+}
