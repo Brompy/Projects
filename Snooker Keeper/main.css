@@ -1,6 +1,8 @@
 body, html {
   height: 100%;
   background-color: rgba(12, 29, 30, 0.647);
+  color: white;
+  margin: 0 auto;
 }
 
 * {
@@ -10,19 +12,35 @@ body, html {
 header {
   display: flex;
   justify-content: space-evenly;
-  max-width: 20em;
 }
 
 main {
-  margin: 1em;
-  max-width: 20em;
+  max-width: 25em;
+  margin: 2em auto;
 }
 
 section {
   margin: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 8em;
+  margin-right: 5em;
+}
+
+.rightColumn {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.5em;
+
 }
 
 img {
@@ -50,20 +68,26 @@ img {
   vertical-align: middle;
   margin-top: 5px;
   cursor: pointer;
-  
-
   }
+
+.playerScore {
+  border-top: solid 1px white;
+  border-bottom: solid 1px white;
+}
+
+footer {
+  margin-top: 2em;
+  font-size: 2rem;
+}
 
 .redBall {
   background-color: red;
-  grid-column: 1/4;
-  grid-row: 1/1;
+
 }
 
 .yellowBall {
   background-color: yellow;
-  grid-column: 2/4;
-  grid-row: 1/3;
+
 }
 
 .pinkBall {
@@ -71,13 +95,12 @@ img {
 }
 
 .brownBall {
-  background-color: brown;
+  background-color: rgb(150, 51, 51);
 }
 
 .greenBall {
   background-color: green;
-  grid-column: 3/4;
-  grid-row: 1/3;
+
 }
 
 .blackBall {
