@@ -1,3 +1,4 @@
+//values for each snooker ball and FOUL button.
 const scoreValues = { 
   red: 1,
   yellow: 2,
@@ -15,23 +16,43 @@ const scoreValues = {
  //Click NEW GAME at the top to set both player's scores back to 0.
 
  //selecting each individual player's score.
- let player1Score = document.getElementById('player1Score').innerText.split(' ')[3];
+ let player1Score = document.getElementById('player1Score');
 
-let player2Score = document.getElementById('player2Score').innerText.split(' ')[3];
+let player2Score = document.getElementById('player2Score');
  
-    function updateScore(event) {
-      const ball = event.target;
- const color = ball.classList.item(1);
-//   console.log(color);
-//   // const playerId = ball.closest('section').id;
-//   const playerScoreElement = ball.closest('.playerScore').querySelector('h2');
-//   console.log(playerScoreElement);
-//   const playerScoreText = playerScoreElement.textContent;
-//   const playerScore = Number(playerScoreText.match(/\d+/)[0]);
-//   console.log(playerScore);
-//   const ballScore = scoreValues[color];
-//   playerScoreElement.textContent += `Player Score: ${playerScore + ballScore}` 
-// }
-//^ This function is pretty bloated and is doing too much. It is better to divvy up the responsibilities of DOM traversal to a separate function.
+
+//loop through all the .ball class and attach an event listener to each of them. Note the "foul" button is considered a "ball" for simplicity's sake.
+const ball = document.querySelectorAll(".ball");
+
+function updateScore(playerScore, scoreChange) {
+  let currentScore = parseInt(playerScore.innerText.split(' ')[2]);
+
+  let newScore = currentScore + scoreChange;
+
+  playerScore.innerText = `Player Score: ${newScore}`;
+}
+
+ball.forEach((element) => {
+  element.addEventListener("click", function() {
+    const ballClass = element.classList[1];
+    console.log(ballClass);
+
+    const scoreChange = scoreValues[ballClass];
+    console.log(scoreChange);
+
+    const playerSection = element.closest('section');
+
+    const playerScore = playerSection.nextElementSibling.querySelector('h2');
+
+    if(playerScore === player1Score) {
+      updateScore(playerScore, scoreChange);
+    } else if (playerScore === player2Score) {
+      updateScore(playerScore, scoreChange);
+    }
+
+    updateScore(playerScore, scoreChange);
+
+  });
+});
 
 
